@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Preloader</title>
+<style>
+    
+    @keyframes scaleIt{
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(1.8);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    
+    html,body{
+        height:100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container{
+        background: whitesmoke;
+        height: 100%;
+    }
+    
+    .preloader{
+        width:200px;
+        height:200px;
+/*        border:1px solid;*/
+        margin: 0% auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        perspective: 1000px;
+    }
+    
+
+    
+    .circle{
+        margin:40% auto;
+        width:20px;
+        height:20px;
+        border-radius: 50%;
+/*        border:1px solid #bbb;*/
+    }
+    
+    .blue{
+        background-color: dodgerblue;
+    }
+    .red{
+        background-color: red;
+    }
+    .yellow{
+        background-color: yellow;
+    }
+    .green{
+        background-color:limegreen;
+    }
+    
+    
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="preloader">
+            <div class="circle blue"></div>
+            <div class="circle red"></div>
+            <div class="circle yellow"></div>
+            <div class="circle green"></div>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            //grab all circles
+            var circle = $('.circle');
+          
+            function loading(){
+                for(n=0;n<circle.length;n++){
+            circle.eq(n).css({
+                animationName:'scaleIt',
+                animationDuration: '1.5s',
+                animationIterationCount:'infinite',
+                animationDelay:1*n/4+'s'
+                });
+            }   
+        }
+            loading();
+                      
+        });
+        
+    
+    </script>
+</body>
+</html>

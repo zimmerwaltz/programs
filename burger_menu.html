@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head><title>Menu button</title>
+<style> 
+    
+    .container{
+        perspective: 1000px;
+        margin: 40px;
+/*        border:1px solid;*/
+        width:50px;
+        max-height:30px;
+        padding: 0;
+        cursor: pointer;
+    }
+    
+    .box{
+        background:orange;
+        width:100%;
+        height:5px;
+        margin:0 0 7px;
+        transition: all 0.15s;
+        transform-style: flat;
+        position: relative;
+        top:0;
+        left:0;
+    }
+    
+      
+    .container:hover .box:nth-child(2){
+        transform: translateX(-100px);
+        
+    }
+    
+    .container:hover .box:first-child{
+        transform: rotateZ(45deg) translateX(17px);
+        left: -10px;
+        top: 2px;
+    }
+    
+    .container:hover .box:last-child{
+        transform: rotateZ(-45deg) translateX(17px);
+        left: -10px;
+        top: 2px;
+    }
+    
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

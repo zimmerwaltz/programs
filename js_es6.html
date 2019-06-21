@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Classes Practice</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+    class Animal{
+        constructor(_name="dog",_legs=4,_sound="bark"){
+		  	//properties
+		    this.name = _name;
+	        this.sound = _sound;
+	        this.legs = _legs;
+        }
+
+        //method
+        intro(){
+        	console.log(`Method : Hi Imma ${this.name} and I ${this.sound}`);
+        }
+
+        //getter. Behaves like a property. Does not need to be called with brackets
+        get introduction(){
+        	console.log(`Getter: Hi Imma ${this.name} and I ${this.sound}`);
+        }
+    
+        //setter. Assign new values to your instance properties
+        //Here we use it to re assign the name property for hen
+        set introduction(_petName){
+            this.name = _petName;
+            console.log(`Getter: Hi Imma ${this.name} and I ${this.sound}`);
+        }
+         
+        //These static methods are like utility methods or classes
+        //eg Math.random()
+        static isMammal(animal){
+            return animal.legs===4 ? "Is a mammal": "Not a mammal";
+        }
+    }//Animal ends
+
+    //creating a child class to demo inheritance/extends
+    class Mammal extends Animal{
+        constructor(_name,_legs,_sound,_development){
+            //inhherited properties
+            super(_name,_legs,_sound);
+        
+            //native properties
+            this.development = 'viviparious';
+        }
+        
+        //polymorphism. overriding parent class method
+        intro(){
+            super.intro();
+            console.log(`Method : Hi Imma ${this.name} and I ${this.sound}. I'm a ${this.development} animal`);
+        }
+        
+    }//Mammal ends
+    
+    
+    //creating a new instances
+    var dog = new Animal(); 
+    var cat = new Animal('cat',Animal._legs,'meow');
+    var hen = new Animal('hen',2,'puck');
+
+    console.table([dog,cat,hen]);
+
+    hen.introduction; //calling the getter
+
+    hen.introduction='Kombdi'; //calling the setter
+
+    console.table([hen]); //name property changed using setter
+
+    console.log(Animal.isMammal(dog)); //using a static method
+
+    //new instance using child class    
+    var whale = new Mammal('whale',0,'hmmm'); 
+    console.log(whale);   
+    
+    console.log(whale.intro());//calling the overridden method
+    
+
+
+</script>
+
+</body>
+</html>
+

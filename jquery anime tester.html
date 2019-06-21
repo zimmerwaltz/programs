@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style>
+			
+			.square{background-color:red; height:150px; width:150px; position: relative; display: none}
+			
+		</style>
+		<script src="jquery.js"></script>
+	</head>			
+	
+	<body>
+		
+	<div class="square"></div>
+		
+		
+		
+		
+		
+		
+		<script>
+			
+$(document).ready(function () {
+    
+    var sq = $('.square') ;
+    
+    sq.fadeIn('fast');
+    
+    sq.on('click',special2);
+    
+    function special(){
+ 
+     $(this).animate({opacity:0.3,left:'300px'},800,function(){console.log('complete');})
+     .animate({top:'300px'},800);
+     }
+    
+    
+	function special2(){
+        
+        var end = $('body').outerWidth();
+ 
+     $(this).animate({
+         opacity:'0.2',
+         left:end-150 },              
+    {
+         duration:'500',
+         complete: function()
+             {console.log('complete');},
+         queue: true,
+         step:function(){console.log('step done')}
+     })
+     
+         .animate({opacity:'toggle',opacity:'1'},100)
+         .queue(function(next){
+         $(this).css({backgroundColor:'blue'});
+                 next();
+             });
+    }
+    
+    
+});
+			
+		</script>
+	</body>
+	
+</html>

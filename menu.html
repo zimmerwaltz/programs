@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HIM Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<!--  custom css starts-->
+    <style>
+        
+        body{
+            font-size: 1.8em;
+            letter-spacing: 1px;
+        }
+        
+        .nav>li>a{
+            padding: 25px 20px;
+        }
+        
+        .nav-pills>li.active>a{
+            background-color: #3498db;
+        } 
+
+    </style>
+<!--custom css ends  -->
+</head>
+
+<body>
+  
+    <div class="container-fluid">
+        <div class="col-sm-2">
+            <ul class="nav nav-pills nav-stacked" role="tablist">
+              <li role="presentation" class="active"><a href="#enrollment" aria-controls="enrollment" role="tab" data-toggle="tab">Enrollment</a></li>
+              <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+              <li role="presentation"><a href="#">Logout</a></li>
+            </ul> <!-- nav stacked-->
+        </div><!-- col-sm-2-->
+        
+        <div class="col-sm-10">
+             <div class="tab-content">
+                
+                 <div role="tabpanel" class="tab-pane active" id="enrollment">
+                    <ul class="nav nav-pills nav-justified">
+                      <li role="presentation"><a href="#">Home</a></li>
+                      <li role="presentation"><a href="#">Profile</a></li>
+                      <li role="presentation"><a href="#">Messages</a></li>
+                      <li role="presentation"><a href="#">Contacts</a></li>
+                    </ul> <!-- nav stacked-->
+                 </div><!--tab panel-->
+                 
+                 <div role="tabpanel" class="tab-pane" id="settings">
+                    <ul class="nav nav-pills nav-justified">
+                      <li role="presentation"><a href="#">Account</a></li>
+                      <li role="presentation"><a href="#">Payments</a></li>
+                      <li role="presentation"><a href="#">Privacy</a></li>
+                      <li role="presentation"><a href="#">Friends</a></li>
+                    </ul> <!-- nav stacked-->
+                 </div><!--tab panel-->
+                 
+            </div><!-- tab content-->
+        </div><!-- col-sm-10-->
+    </div><!-- container fluid-->
+
+</body>
+
+    <script>
+        $(document).ready(function(){
+            $('.nav li').find('a').on('click',function(){
+                
+//                $(this).parent('li').siblings().removeClass('active').end().addClass('active');
+                
+//               console.log("left click"); 
+            });
+        }); 
+//        dom ends
+    </script>
+
+</html>
+
